@@ -55,14 +55,23 @@
         const todoList = [];
         
         // BE ABLE TO EXPLAIN what document.getByElementID() and .addEventListener() does in this context
+
+        // document.getElementById('add-todo-btn') retrieves the HTML element with the ID 'add-todo-btn' (the "Add Todo" button).
+        // addEventListener('click') adds an event listener to this button, so when it is clicked, 
+        // the function inside this listener is executed, adding a new todo to the list.
         document.getElementById('add-todo-btn').addEventListener('click', () => {
             
             // BE ABLE TO EXPLAIN what document.getByElementID() does in this context
+
+            // document.getElementById('todo-input') retrieves the input element where the user types in the new todo.
             const todoInput = document.getElementById('todo-input');
             const createdTodo = todoInput.value.trim();
             
             // Add non-empty string todos to the todo list
             // YOUR CODE HERE 
+            if (createdTodo !== "") {
+                addTodo(createdTodo);
+            }
 
             // reset the input value after add todo is clicked.
             todoInput.value = '';
@@ -72,6 +81,7 @@
         function refreshTodoList() {
             
             // BE ABLE TO EXPLAIN what document.getByElementID() does in this context
+            // document.getElementById('todo-list') gets the element where all the todos will be displayed.
             const todoListElement = document.getElementById('todo-list');
             todoListElement.innerHTML = '';
 
@@ -90,12 +100,14 @@
 
         function deleteTodo(index) {
             // YOUR CODE HERE (recycle your work from former tasks)
-            refreshTodoList()
+            todoList.splice(index, 1);
+            refreshTodoList();
         }
 
         function addTodo(todo) {
             // YOUR CODE HERE (recycle your work from former tasks)
-            refreshTodoList()
+            todoList.push(todo);
+            refreshTodoList();
         }
     </script>
 </body>

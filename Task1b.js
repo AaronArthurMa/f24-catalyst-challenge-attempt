@@ -17,13 +17,15 @@ todoList = [];
  * the "// YOUR CODE HERE" comments.
  */
 
-function __todo(todoString) {
-    // YOUR CODE HERE
+function addTodo(todoString) {
+    todoList.push(todoString);
 }
 
-function __todo() {
-    // YOUR CODE HERE
-}
+function printTodo() {
+    console.log("TODOS:");
+    for (let i = 1; i < todoList.length + 1; i++) {
+        console.log(i + ". " + todoList[i-1]);
+}}
 
 /**
  * Main is considered the entry point to a procedural program. Within y/cs,
@@ -31,7 +33,10 @@ function __todo() {
  * we do it here
  */
 function mainTask1b() {
-    // YOUR CODE HERE (simply call the functions you implemented above)
+    addTodo("Apply to y/cs!");
+    addTodo("Pick out my classes");
+    addTodo("Have dinner with my suite");
+    printTodo();
 }
 
 // This bit of code ensures that a main method exists! If it doesn't, then it throws an error
